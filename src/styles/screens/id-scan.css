@@ -1,0 +1,25 @@
+/* ─── ID Scan Screen ─────────────────────────────────────────────────────── */
+
+.hosted-auth-root .hosted-auth-id-scan__body {
+  flex: 1;
+  position: relative;
+  margin-left: -1rem;   /* -mx-4 to cancel screen padding */
+  margin-right: -1rem;
+}
+
+.hosted-auth-root .hosted-auth-id-scan__verifying {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--auth-bg-white, #ffffff);
+  z-index: 50;
+}
+
+.hosted-auth-root .hosted-auth-id-scan__verifying-text {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  color: var(--auth-text-secondary, #65676e);
+}

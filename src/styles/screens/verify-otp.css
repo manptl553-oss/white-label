@@ -1,0 +1,58 @@
+/* ─── Verify OTP Screen ──────────────────────────────────────────────────── */
+
+.hosted-auth-root .hosted-auth-verify-phone-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--auth-bg-light, #fafafa);
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--auth-border-default, #d9d9d9);
+}
+
+.hosted-auth-root .hosted-auth-verify-phone-text {
+  font-size: 0.875rem;
+  letter-spacing: 0.025em;
+  color: var(--auth-text-primary, #1e212a);
+}
+
+.hosted-auth-root .hosted-auth-verify-edit-btn {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--auth-link-color, #7ec040);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.hosted-auth-root .hosted-auth-verify-edit-btn:hover {
+  text-decoration: underline;
+}
+
+.hosted-auth-root .hosted-auth-verify-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.hosted-auth-root .hosted-auth-verify-resend-row {
+  margin-top: 0.25rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3125rem; /* gap-1.25 */
+}
+
+.hosted-auth-root .hosted-auth-verify-resend-text {
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--auth-text-secondary, #65676e);
+  margin-top: var(--auth-spacing-sm, 0);
+  line-height: normal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3125rem;
+}

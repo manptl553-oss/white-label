@@ -1,0 +1,158 @@
+/* ─── IDCapture SDK Customization ────────────────────────────────────────── */
+/* These rules must remain GLOBAL (not scoped) because IDScan injects its    */
+/* DOM directly into the document, outside the .hosted-auth-root subtree.    */
+
+/* IDCapture SDK Customization */
+.idvc {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  /* Force steps list to fill horizontal space */
+  .steps-list-screen,
+  & .steps-list-screen {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 10px !important;
+    margin: 0 !important;
+  }
+  .loader-background {
+    color: var(--auth-primary);
+  }
+
+  .idvc-version-plank-container {
+    display: none;
+  }
+
+  .screen-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+
+    .message-box__container {
+      .message-box__caret-container {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+
+  .vc-dialog-bottom__header {
+    padding: 4px 0 4px 16px !important;
+    align-items: center;
+    .vc-dialog-bottom__header__cancel {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  #loader-wrapper.gemBlue {
+    .cube__face:nth-child(1) {
+      background-color: var(--color-primary-200) !important;
+    }
+    .cube__face:nth-child(2) {
+      background-color: var(--auth-primary) !important;
+    }
+    .cube__face:nth-child(3) {
+      background-color: var(--auth-primary) !important;
+    }
+  }
+  --font-family: var(--auth-font-family);
+
+  /* radius of retake, continue, submit buttons*/
+  --btn-border-radius-big: 8px;
+
+  /* radius of the manual switch button
+  radius of the messagebox*/
+  --btn-border-radius-small: 6px;
+
+  /* 'select document type' menus's checkmark*/
+  --color-text-secondary-light: #c4c4c4 !important;
+
+  /* success frame on capturing*/
+  --color-positive-light: var(--auth-primary) !important;
+
+  /* message box's default border color
+  'select document type' menus's devider*/
+  --border-color-divider: #c0c0c0;
+
+  /* primary button hover, focus colors*/
+  --color-primary-light-2: var(--auth-primary-hover) !important;
+
+  /* transparent button hover and focus background color*/
+  --color-primary-light-7: var(--auth-focus-shadow) !important;
+
+  /* transparent button border hover, focus colors
+  'select document type' menus's selected item background*/
+  --color-primary-light-9: var(--auth-primary) !important;
+
+  /* primary button active colors
+  transparent button active font color and border color*/
+  --color-primary-dark-2: var(--auth-primary) !important;
+
+  /* background of the bottom part of the active step in 'steps' section
+  'type not defined' select background of the modal window
+  scrollbar of 'result' modal window*/
+  --color-background-subheader: #f5f6f9 !important;
+
+  /* uploader's background
+  background of 'result' modal window container
+  background of 'type not defined' modal window
+  background of 'document type-hint' section*/
+  --color-background-white: var(--auth-bg-white) !important;
+
+  /* border of 'type not defined' modal window select
+  border of 'document type-hint' section
+  borders of top part in 'steps' section
+  bottom icons of inactive step in 'steps' section
+  image background  in 'steps' section*/
+  --border-color-base: var(--auth-border-default) !important;
+
+  /* background of primary buttons */
+  --color-primary: var(--auth-primary) !important;
+
+  /* succeeded steps / face shape / capture progress / valid sign */
+  --color-success: var(--auth-primary) !important;
+  --el-color-success: var(--auth-primary) !important;
+  --color-success-light-8: var(--color-primary-100) !important;
+
+  /* step error background / header / invalid sign / license error text */
+  --color-danger: var(--auth-error-color) !important;
+
+  /* warning sign of uploader */
+  --color-warning: #b89316e6 !important;
+
+  /* scrollbar / library version / descriptions / close sign / inactive step name */
+  --color-text-secondary: var(--auth-text-secondary) !important;
+
+  /* face shape icon / shadow / modal caption */
+  --color-black: #000 !important;
+
+  /* button captions / border / upload icon / checkmark / capture progress description */
+  --color-white: var(--auth-btn-text-color) !important;
+
+  /* Fix Mode Switcher tabs text visibility and center the tabs */
+  .test-uploader__icons-container {
+    display: flex;
+    justify-content: center !important;
+  }
+
+  .btn-switch__button--is-active,
+  .btn-switch__button--is-active .btn-switch__text,
+  .btn-switch__button--is-active .btn-switch__icon {
+    color: var(--auth-btn-text-color) !important;
+  }
+
+  .btn-switch__button--is-active svg path {
+    fill: var(--auth-btn-text-color) !important;
+  }
+}
+
+@media (min-width: 0px) {
+  .card-step .card-step__name {
+    font-size: 14px !important;
+  }
+}

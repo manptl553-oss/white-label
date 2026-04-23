@@ -1,0 +1,52 @@
+/* ─── Sign-In / Sign-Up shared form styles ──────────────────────────────── */
+
+.hosted-auth-root .hosted-auth-auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem; /* gap-5 */
+}
+
+.hosted-auth-root .hosted-auth-auth-form__field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem; /* gap-1 */
+}
+
+/* Override button height in these forms */
+.hosted-auth-root .hosted-auth-auth-form .hosted-auth-button {
+  height: 2.5rem;   /* h-10 */
+  margin-top: 0;
+}
+
+/* ─── Sign-Up specific ──────────────────────────────────────────────────── */
+
+.hosted-auth-root .hosted-auth-consent-box {
+  background-color: var(--auth-bg-light, #fafafa);
+  border-radius: 6px;
+  padding: 14px;
+  transition: all 0.2s ease;
+}
+
+.hosted-auth-root .hosted-auth-consent-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+  user-select: none;
+  margin: 0;
+  padding: 8px 0;
+  min-height: 44px;
+}
+
+.hosted-auth-root .hosted-auth-consent-text {
+  font-size: 0.8125rem;
+  color: var(--auth-text-primary, #1e212a);
+  line-height: 1.25;
+  font-weight: 400;
+}
+
+.hosted-auth-root .hosted-auth-consent-link {
+  color: var(--auth-primary-bg, #7ec040);
+  font-weight: 400;
+  text-decoration: underline;
+}

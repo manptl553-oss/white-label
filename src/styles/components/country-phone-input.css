@@ -1,0 +1,239 @@
+/* ─── Country Phone Input ────────────────────────────────────────────────── */
+
+.hosted-auth-root .hosted-auth-country-input {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem; /* gap-5 */
+}
+
+/* Country select button */
+.hosted-auth-root .hosted-auth-country-select-btn {
+  display: flex;
+  align-items: center;
+  padding: 15px 14px;
+  min-height: 52px;
+  border: 1px solid var(--auth-border-default, #d9d9d9);
+  border-radius: 6px;
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  width: 100%;
+  text-align: left;
+  font-size: 0.9375rem;
+  outline: none;
+}
+
+.hosted-auth-root .hosted-auth-country-select-btn:hover {
+  border-color: var(--auth-primary, #7ec040);
+}
+
+.hosted-auth-root .hosted-auth-country-select-btn:focus {
+  border-color: var(--auth-primary, #7ec040);
+  box-shadow: 0 0 0 4px var(--auth-focus-ring, rgba(126, 192, 64, 0.1));
+}
+
+.hosted-auth-root .hosted-auth-country-flag {
+  width: 24px;
+  height: 18px;
+  margin-right: 12px;
+  border-radius: 2px;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+.hosted-auth-root .hosted-auth-country-label {
+  flex: 1;
+  font-size: 0.9375rem;
+  color: var(--auth-text-primary, #1e212a);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hosted-auth-root .hosted-auth-country-chevron {
+  width: 20px;
+  height: 20px;
+  color: var(--auth-text-secondary, #65676e);
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.hosted-auth-root .hosted-auth-country-chevron--open {
+  transform: rotate(180deg);
+}
+
+/* Dropdown */
+.hosted-auth-root .hosted-auth-country-dropdown {
+  position: absolute;
+  top: 48%;
+  left: 0;
+  right: 0;
+  background-color: #ffffff;
+  border: 1px solid var(--auth-border-default, #d9d9d9);
+  border-radius: 6px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  max-height: min(280px, 50vh);
+  overflow: hidden;
+  z-index: 100;
+  animation: hosted-auth-dropdown-fade-in 0.15s ease-out;
+}
+
+/* Search bar */
+.hosted-auth-root .hosted-auth-country-search {
+  position: sticky;
+  top: 0;
+  background-color: #ffffff;
+  border-bottom: 1px solid var(--auth-country-border-light, #e5e7eb);
+  padding: 8px;
+  z-index: 10;
+}
+
+.hosted-auth-root .hosted-auth-country-search__inner {
+  position: relative;
+}
+
+.hosted-auth-root .hosted-auth-country-search__icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  color: var(--auth-search-icon-color, #9ca3af);
+  pointer-events: none;
+}
+
+.hosted-auth-root .hosted-auth-country-search__input {
+  width: 100%;
+  padding: 10px 14px 10px 40px;
+  font-size: 0.875rem;
+  background-color: var(--auth-input-bg-search, #f9fafb);
+  border-radius: 6px;
+  border: 1px solid transparent;
+  outline: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hosted-auth-root .hosted-auth-country-search__input:focus {
+  background-color: #ffffff;
+  border-color: var(--auth-primary, #7ec040);
+  box-shadow: 0 0 0 2px var(--auth-focus-ring, rgba(126, 192, 64, 0.1));
+}
+
+/* Country list */
+.hosted-auth-root .hosted-auth-country-list {
+  max-height: 230px;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.hosted-auth-root .hosted-auth-country-list::-webkit-scrollbar {
+  display: none;
+}
+
+/* Each country item */
+.hosted-auth-root .hosted-auth-country-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 14px;
+  cursor: pointer;
+  font-size: 0.9375rem;
+  transition: background-color 0.15s ease;
+  min-height: 44px;
+}
+
+.hosted-auth-root .hosted-auth-country-item:hover {
+  background-color: var(--auth-country-hover-bg, #f3f3f3);
+}
+
+.hosted-auth-root .hosted-auth-country-item:active {
+  background-color: var(--auth-btn-cancel-bg-hover, #e0e0e0);
+}
+
+.hosted-auth-root .hosted-auth-country-item--selected {
+  background-color: var(--auth-country-hover-bg, #f3f3f3);
+}
+
+.hosted-auth-root .hosted-auth-country-item__flag-wrap {
+  font-size: 1.25rem;
+  margin-right: 8px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.hosted-auth-root .hosted-auth-country-item__flag {
+  width: 24px;
+  height: 18px;
+  border-radius: 2px;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+.hosted-auth-root .hosted-auth-country-item__name {
+  color: var(--auth-text-primary, #1e212a);
+}
+
+.hosted-auth-root .hosted-auth-country-item__code {
+  color: var(--auth-text-secondary, #65676e);
+}
+
+/* Phone input */
+.hosted-auth-root .hosted-auth-phone-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.hosted-auth-root .hosted-auth-phone-input {
+  width: 100%;
+  padding: 18px 14px 0;
+  height: 52px;
+  border: 1px solid var(--auth-border-default, #d9d9d9);
+  border-radius: 6px;
+  font-size: 0.9375rem;
+  background-color: #ffffff;
+  color: var(--auth-text-primary, #1e212a);
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.hosted-auth-root .hosted-auth-phone-input:focus {
+  border-color: var(--auth-primary, #7ec040);
+  box-shadow: 0 0 0 4px var(--auth-focus-ring, rgba(126, 192, 64, 0.1));
+}
+
+.hosted-auth-root .hosted-auth-phone-label {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #ffffff;
+  padding: 0 6px;
+  font-size: 0.9375rem;
+  color: var(--auth-text-placeholder, #9e9e9e);
+  pointer-events: none;
+  transition: top 0.2s ease, transform 0.2s ease, font-size 0.2s ease, color 0.2s ease;
+  z-index: 1;
+}
+
+.hosted-auth-root .hosted-auth-phone-input:focus + .hosted-auth-phone-label {
+  top: 0;
+  transform: translateY(-50%);
+  font-size: 0.8125rem;
+  color: var(--auth-primary, #7ec040);
+}
+
+.hosted-auth-root .hosted-auth-phone-input:not(:placeholder-shown) + .hosted-auth-phone-label {
+  top: 0;
+  transform: translateY(-50%);
+  font-size: 0.8125rem;
+  color: var(--auth-primary, #7ec040);
+}
+
+/* Click-outside backdrop */
+.hosted-auth-root .hosted-auth-click-trap {
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+}

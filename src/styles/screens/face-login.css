@@ -1,0 +1,56 @@
+/* ─── Face Login Screen ──────────────────────────────────────────────────── */
+
+.hosted-auth-root .hosted-auth-face-login--loading {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 1rem;
+}
+
+.hosted-auth-root .hosted-auth-face-login__loader-body {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Error state — full-page centering */
+.hosted-auth-root .hosted-auth-face-login--error {
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.hosted-auth-root .hosted-auth-face-login__error-inner {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  max-width: 24rem;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.hosted-auth-root .hosted-auth-face-login__sticky-btn {
+  position: sticky;
+  width: 100%;
+  bottom: 0;
+}
+
+.hosted-auth-root .hosted-auth-face-login__sticky-btn .hosted-auth-button {
+  width: 100%;
+  height: 2.75rem; /* h-11 */
+  margin-top: 0;
+}
+
+/* Active camera state — keep face-login-container (vendor) but add flex layout */
+.hosted-auth-root .hosted-auth-face-login--active {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  min-height: 0;
+  flex: 1;
+}

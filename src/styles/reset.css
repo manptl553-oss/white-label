@@ -1,0 +1,30 @@
+/* ─── Scoped Reset ────────────────────────────────────────────────────────── */
+/* Only resets elements inside the SDK root — never touches the host page.    */
+
+.hosted-auth-root,
+.hosted-auth-root *,
+.hosted-auth-root *::before,
+.hosted-auth-root *::after {
+  box-sizing: border-box;
+}
+
+.hosted-auth-root button,
+.hosted-auth-root input,
+.hosted-auth-root label,
+.hosted-auth-root a {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.hosted-auth-root img {
+  display: block;
+  max-width: 100%;
+}
+
+.hosted-auth-root p,
+.hosted-auth-root h1,
+.hosted-auth-root h2,
+.hosted-auth-root h3 {
+  margin: 0;
+  padding: 0;
+}

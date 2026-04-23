@@ -1,0 +1,124 @@
+/* ─── Auth Card ──────────────────────────────────────────────────────────── */
+
+.hosted-auth-root .hosted-auth-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 28px;
+  width: 100%;
+  min-height: 100%;
+  animation: hosted-auth-fade-in-up 0.3s ease-out;
+}
+
+.hosted-auth-root .hosted-auth-card__inner {
+  width: 100%;
+}
+
+/* Brand area (logo + name) */
+.hosted-auth-root .hosted-auth-card__brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+  gap: 0.25rem;
+}
+
+.hosted-auth-root .hosted-auth-card__logo-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  min-width: 40px;
+}
+
+.hosted-auth-root .hosted-auth-card__logo-skeleton {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 9999px;
+  background-color: #e5e7eb;
+  animation: hosted-auth-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.hosted-auth-root .hosted-auth-card__logo-img {
+  max-width: 80px;
+  height: auto;
+  display: block;
+  position: relative;
+  z-index: 10;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+.hosted-auth-root .hosted-auth-card__logo-img--visible {
+  opacity: 1;
+}
+
+.hosted-auth-root .hosted-auth-card__brand-name {
+  font-size: 0.6875rem;  /* 11px */
+  font-weight: 900;
+  color: #6b7280;
+  letter-spacing: -0.025em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+/* Title + subtitle */
+.hosted-auth-root .hosted-auth-card__title {
+  font-size: 1.625rem;  /* 26px */
+  font-weight: 400;
+  color: var(--auth-text-primary, #1e212a);
+  text-align: center;
+  margin: 0 0 8px 0;
+  line-height: 1.3;
+}
+
+.hosted-auth-root .hosted-auth-card__subtitle {
+  font-size: 0.9375rem;  /* 15px */
+  color: var(--auth-text-secondary, #65676e);
+  text-align: center;
+  margin: 0 0 32px 0;
+  line-height: normal;
+}
+
+/* Children content area */
+.hosted-auth-root .hosted-auth-card__content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Loading overlay inside the card */
+.hosted-auth-root .hosted-auth-card__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border-radius: inherit;
+  z-index: 5;
+}
+
+.hosted-auth-root .hosted-auth-card__overlay-spinner-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+}
+
+.hosted-auth-root .hosted-auth-card__overlay-spinner {
+  width: 28px;
+  height: 28px;
+  border: 3px solid var(--auth-primary-bg, #7ec040);
+  border-top-color: transparent;
+  border-radius: 9999px;
+  animation: hosted-auth-spin 0.7s linear infinite;
+}

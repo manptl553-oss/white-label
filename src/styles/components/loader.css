@@ -1,0 +1,17 @@
+/* ─── Loader ─────────────────────────────────────────────────────────────── */
+
+.hosted-auth-root .hosted-auth-loader {
+  width: 2rem;   /* h-8 w-8 default */
+  height: 2rem;
+  border-radius: 9999px;
+  border-top: 2px solid var(--auth-primary, #7ec040);
+  border-bottom: 2px solid var(--auth-primary, #7ec040);
+  border-left: 2px solid transparent;
+  border-right: 2px solid transparent;
+  animation: hosted-auth-spin 0.8s linear infinite;
+}
+
+.hosted-auth-root .hosted-auth-loader--lg {
+  width: 4rem;   /* h-16 w-16 */
+  height: 4rem;
+}

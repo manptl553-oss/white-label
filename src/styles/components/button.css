@@ -1,0 +1,90 @@
+/* ─── Button ─────────────────────────────────────────────────────────────── */
+
+.hosted-auth-root .hosted-auth-button {
+  /* Base — solid variants (primary, outline) */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  height: 2.75rem;        /* 44px */
+  min-height: 3.25rem;    /* 52px */
+  padding: 15px 24px;
+  border-radius: 6px;
+  font-size: 0.9375rem;   /* 15px */
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+  margin-top: 0.5rem;     /* 8px */
+  transition: background-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+}
+
+.hosted-auth-root .hosted-auth-button:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.hosted-auth-root .hosted-auth-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Primary */
+.hosted-auth-root .hosted-auth-button--primary {
+  background-color: var(--auth-primary-bg, #7ec040);
+  color: var(--auth-btn-text-color, #ffffff);
+  border: none;
+}
+.hosted-auth-root .hosted-auth-button--primary:hover:not(:disabled) {
+  background-color: var(--auth-primary-hover, #6da839);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Outline */
+.hosted-auth-root .hosted-auth-button--outline {
+  border: 1px solid var(--auth-primary, #7ec040);
+  background-color: #ffffff;
+  color: var(--auth-primary, #7ec040);
+}
+.hosted-auth-root .hosted-auth-button--outline:hover:not(:disabled) {
+  background-color: var(--color-primary-100, #e4f4d3);
+}
+
+/* Link */
+.hosted-auth-root .hosted-auth-button--link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: auto;
+  height: auto;
+  min-height: 0;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border: none;
+  color: var(--auth-link-color, #7ec040);
+  font-size: 0.8125rem; /* 13px */
+  font-weight: 500;
+}
+.hosted-auth-root .hosted-auth-button--link:hover:not(:disabled) {
+  text-decoration: underline;
+}
+
+/* Spinner (loading state) */
+.hosted-auth-root .hosted-auth-button__spinner {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hosted-auth-root .hosted-auth-button__spinner-dot {
+  width: 18px;
+  height: 18px;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-radius: 9999px;
+  animation: hosted-auth-spin 0.7s linear infinite;
+  flex-shrink: 0;
+}

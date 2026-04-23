@@ -1,0 +1,68 @@
+/* ─── Success Screen ─────────────────────────────────────────────────────── */
+
+.hosted-auth-root .hosted-auth-success {
+  background-color: var(--auth-bg-white, #ffffff);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.hosted-auth-root .hosted-auth-success__centering {
+  background-color: var(--auth-bg-white, #ffffff);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hosted-auth-root .hosted-auth-success__loading {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.hosted-auth-root .hosted-auth-success__loading-text {
+  font-size: 0.875rem;
+  color: var(--auth-text-secondary, #65676e);
+  animation: hosted-auth-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.hosted-auth-root .hosted-auth-success__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  gap: 2rem;
+  text-align: center;
+  margin-top: -10dvh;
+}
+
+.hosted-auth-root .hosted-auth-success__icon {
+  width: 8rem;   /* 128px */
+  height: 8rem;
+}
+
+.hosted-auth-root .hosted-auth-success__text-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.hosted-auth-root .hosted-auth-success__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #68ab39;
+}
+
+.hosted-auth-root .hosted-auth-success__subtitle {
+  color: var(--auth-text-primary, #1e212a);
+  font-weight: 600;
+  font-size: 1.125rem;
+}

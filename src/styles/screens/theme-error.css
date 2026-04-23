@@ -1,0 +1,150 @@
+/* ─── ThemeProvider Error Overlay ────────────────────────────────────────── */
+
+.hosted-auth-root .hosted-auth-error-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+
+.hosted-auth-root .hosted-auth-error-overlay__accent {
+  height: 3px;  /* h-0.75 */
+  width: 100%;
+  background: linear-gradient(to right, #f87171, #ef4444, #f87171);
+}
+
+.hosted-auth-root .hosted-auth-error-overlay__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem 1.25rem 2.5rem;
+  gap: 1rem;
+}
+
+.hosted-auth-root .hosted-auth-error-overlay__icon-wrap {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 9999px;
+  background-color: #fef2f2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.hosted-auth-root .hosted-auth-error-overlay__icon-svg {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+.hosted-auth-root .hosted-auth-error-overlay__text-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: center;
+  text-align: center;
+}
+
+.hosted-auth-root .hosted-auth-error-overlay__title {
+  font-size: 1.0625rem;  /* 17px */
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+  letter-spacing: -0.025em;
+}
+
+.hosted-auth-root .hosted-auth-error-overlay__subtitle {
+  font-size: 0.8125rem;
+  color: #6b7280;
+  margin: 0;
+  line-height: 1.625;
+  max-width: 13.75rem; /* max-w-55 */
+}
+
+.hosted-auth-root .hosted-auth-error-overlay__causes {
+  width: 100%;
+  border-radius: 0.75rem;
+  border: 1px solid #f3f4f6;
+  background-color: #f9fafb;
+  overflow: hidden;
+}
+
+.hosted-auth-root .hosted-auth-error-overlay__cause-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-top: 1px solid #f3f4f6;
+}
+
+.hosted-auth-root .hosted-auth-error-overlay__cause-item:first-child {
+  border-top: none;
+}
+
+.hosted-auth-root .hosted-auth-error-overlay__cause-icon {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.hosted-auth-root .hosted-auth-error-overlay__cause-label {
+  font-size: 0.75rem;
+  color: #4b5563;
+}
+
+.hosted-auth-root .hosted-auth-error-overlay__raw-error {
+  width: 100%;
+  border-radius: 0.5rem;
+  background-color: #fef2f2;
+  border: 1px solid #fee2e2;
+  padding: 10px 14px;
+}
+
+.hosted-auth-root .hosted-auth-error-overlay__raw-error-text {
+  font-size: 0.65625rem;  /* 10.5px */
+  font-family: monospace;
+  color: #b91c1c;
+  margin: 0;
+  word-break: break-all;
+  line-height: 1.625;
+}
+
+.hosted-auth-root .hosted-auth-error-overlay__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  margin-top: 0.25rem;
+}
+
+.hosted-auth-root .hosted-auth-error-overlay__reload-btn {
+  width: 100%;
+  padding: 10px;
+  border-radius: 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #ffffff;
+  background-color: #b91c1c;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.hosted-auth-root .hosted-auth-error-overlay__reload-btn:hover {
+  background-color: #7f1d1d;
+}
+
+.hosted-auth-root .hosted-auth-error-overlay__reload-btn:active {
+  transform: scale(0.98);
+}
+
+.hosted-auth-root .hosted-auth-error-overlay__hint {
+  font-size: 0.6875rem;
+  color: #9ca3af;
+  margin: 0;
+  text-align: center;
+}

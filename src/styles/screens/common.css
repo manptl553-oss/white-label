@@ -1,0 +1,93 @@
+/* ─── Common Screen Wrapper ──────────────────────────────────────────────── */
+
+/* Most screens use: bg-white, h-full, flex-col, p-4, pt-0, relative, w-full */
+.hosted-auth-root .hosted-auth-screen {
+  background-color: var(--auth-bg-white, #ffffff);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 1rem 1rem 1rem;
+  padding-top: 0;
+  position: relative;
+  width: 100%;
+}
+
+/* Shared: flex-1 column that fills and spaces content */
+.hosted-auth-root .hosted-auth-screen__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Shared error message below inputs */
+.hosted-auth-root .hosted-auth-error-msg {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.8125rem;
+  color: var(--auth-error-color, #d40000);
+  line-height: 1.4;
+  animation: hosted-auth-shake 0.3s ease-in-out;
+}
+
+/* Shared custom checkbox (signup + terms) */
+.hosted-auth-root .hosted-auth-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  border: 1px solid var(--auth-border-default, #d9d9d9);
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+  background-color: #ffffff;
+  margin-top: 2px;
+}
+
+.hosted-auth-root .hosted-auth-checkbox:checked {
+  background-color: var(--auth-primary-bg, #7ec040);
+  border-color: var(--auth-primary-bg, #7ec040);
+}
+
+.hosted-auth-root .hosted-auth-checkbox:checked::after {
+  content: "✓";
+  position: absolute;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Shared auth switch link row (sign in / sign up toggle) */
+.hosted-auth-root .hosted-auth-switch-row {
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--auth-text-secondary, #65676e);
+  margin-top: var(--auth-spacing-sm, 0);
+  line-height: normal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.hosted-auth-root .hosted-auth-switch-link {
+  color: var(--auth-primary-bg, #7ec040);
+  font-weight: 400;
+  transition: opacity 0.15s ease;
+  cursor: pointer;
+}
+
+.hosted-auth-root .hosted-auth-switch-link:hover {
+  opacity: 0.7;
+  text-decoration: underline;
+}
+
+.hosted-auth-root .hosted-auth-switch-link--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

@@ -1,0 +1,39 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   hosted-auth SDK Styles
+   All SDK classes are prefixed with `hosted-auth-` and scoped under
+   `.hosted-auth-root` — they never leak into the host application.
+   Vendor CSS (IDScan, Amplify Liveness) is global by necessity.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Foundation */
+@import "./animations.css";
+@import "./reset.css";
+@import "./layout.css";
+
+/* Components */
+@import "./components/button.css";
+@import "./components/input.css";
+@import "./components/header.css";
+@import "./components/toast.css";
+@import "./components/loader.css";
+@import "./components/auth-card.css";
+@import "./components/country-phone-input.css";
+@import "./components/face-verification-error.css";
+@import "./components/id-scan-widget.css";
+
+/* Screens */
+@import "./screens/common.css";
+@import "./screens/auth-forms.css";
+@import "./screens/verify-otp.css";
+@import "./screens/success.css";
+@import "./screens/terms.css";
+@import "./screens/face-instructions.css";
+@import "./screens/face-login.css";
+@import "./screens/id-scan-instructions.css";
+@import "./screens/id-scan.css";
+@import "./screens/payment.css";
+@import "./screens/theme-error.css";
+
+/* Vendor overrides — GLOBAL (must not be scoped) */
+@import "./vendor/idscan.css";
+@import "./vendor/amplify-liveness.css";

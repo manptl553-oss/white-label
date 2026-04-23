@@ -1,0 +1,71 @@
+/* ─── Input (floating label) ─────────────────────────────────────────────── */
+
+.hosted-auth-root .hosted-auth-input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.hosted-auth-root .hosted-auth-input {
+  width: 100%;
+  padding: 15px 14px;
+  min-height: 52px;
+  border: 1px solid var(--auth-border-default, #d9d9d9);
+  border-radius: 6px;
+  font-size: 0.9375rem; /* 15px */
+  background-color: #ffffff;
+  color: var(--auth-text-primary, #1e212a);
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.hosted-auth-root .hosted-auth-input:focus {
+  border-color: var(--auth-primary, #7ec040);
+  box-shadow: 0 0 0 4px var(--auth-focus-ring, rgba(126, 192, 64, 0.1));
+}
+
+.hosted-auth-root .hosted-auth-input--error {
+  border-color: var(--auth-error-color, #d40000);
+}
+
+/* Floating label — base position (centered vertically) */
+.hosted-auth-root .hosted-auth-input__label {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #ffffff;
+  padding: 0 6px;
+  font-size: 0.9375rem; /* 15px */
+  color: var(--auth-text-placeholder, #9e9e9e);
+  pointer-events: none;
+  transition: top 0.2s ease, transform 0.2s ease, font-size 0.2s ease, color 0.2s ease;
+  z-index: 1;
+}
+
+/* Floating label — raised (when input is focused) */
+.hosted-auth-root .hosted-auth-input:focus + .hosted-auth-input__label {
+  top: 0;
+  transform: translateY(-50%);
+  font-size: 0.8125rem; /* 13px */
+  color: var(--auth-primary, #7ec040);
+}
+
+/* Floating label — raised (when input has a value) */
+.hosted-auth-root .hosted-auth-input:not(:placeholder-shown) + .hosted-auth-input__label {
+  top: 0;
+  transform: translateY(-50%);
+  font-size: 0.8125rem; /* 13px */
+  color: var(--auth-primary, #7ec040);
+}
+
+/* Error message */
+.hosted-auth-root .hosted-auth-input__error {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.8125rem; /* 13px */
+  color: var(--auth-error-color, #d40000);
+  margin-top: 4px;
+  line-height: 1.4;
+  animation: hosted-auth-shake 0.3s ease-in-out;
+}

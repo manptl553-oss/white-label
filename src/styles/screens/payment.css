@@ -1,0 +1,16 @@
+/* ─── Payment Screen ─────────────────────────────────────────────────────── */
+
+.hosted-auth-root .hosted-auth-payment {
+  background-color: var(--auth-bg-white, #ffffff);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.hosted-auth-root .hosted-auth-payment__loader-wrap {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}

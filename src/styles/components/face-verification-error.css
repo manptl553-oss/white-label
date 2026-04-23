@@ -1,0 +1,28 @@
+/* ─── Face Verification Error ────────────────────────────────────────────── */
+
+.hosted-auth-root .hosted-auth-face-error {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+.hosted-auth-root .hosted-auth-face-error__inner {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+}
+
+.hosted-auth-root .hosted-auth-face-error__icon {
+  width: 6rem;  /* 96px */
+  height: 6rem;
+}
+
+.hosted-auth-root .hosted-auth-face-error__message {
+  font-size: 1rem;
+  color: var(--auth-text-secondary, #65676e);
+  white-space: pre-line;
+}
