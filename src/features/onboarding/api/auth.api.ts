@@ -1,10 +1,11 @@
 import { useEffect } from "react";
-import { useWhiteLabeledAuthClient } from "@/core";
+import { getWindow, useWhiteLabeledAuthClient } from "@/core";
 import { axiosGet, axiosPost, useZodMutation, useZodQuery } from "@/lib/api";
 import { tokenStorage } from "@/lib/auth";
 import {
   LS_AUTH_ACTION,
   LS_PHONE,
+  LS_REQUEST_TOKEN,
   getBrowserId,
   getDeviceInfo,
   getGeolocation,
