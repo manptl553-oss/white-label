@@ -1,6 +1,6 @@
 {
   "name": "@manptl553-oss/white-labeled-auth",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "White-labeled authentication & onboarding SDK. Works across React, Angular, Vue and Vanilla JS.",
   "type": "module",
   "main": "./dist/index.cjs",
