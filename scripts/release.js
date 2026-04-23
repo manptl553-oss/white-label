@@ -31,5 +31,6 @@ run("git add .");
 run(`git commit -m "chore(release): v${version}" || true`);
 run(`git tag v${version}`);
 run("git push && git push --tags");
+run("npm publish");
 
 console.log("\n✅ Release complete!");
