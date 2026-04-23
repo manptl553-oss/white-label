@@ -1,4 +1,4 @@
-import { defineConfig, loadEnv, type UserConfig } from "vite";
+import { defineConfig, loadEnv, type Plugin, type UserConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
 import path from "node:path";
@@ -9,8 +9,54 @@ interface PackageJson {
 }
 
 const pkg: PackageJson = JSON.parse(
-  readFileSync(path.resolve(__dirname, "package.json"), "utf-8")
+  readFileSync(path.resolve(__dirname, "package.json"), "utf-8"),
 );
+
+/**
+ * Replaces `require("node-fetch")` / `import "node-fetch"` from transitive
+ * deps (e.g. @tensorflow/tfjs-core via @aws-amplify/ui-react-liveness)
+ * with a tiny shim that delegates to the browser's native fetch.
+ *
+ * Without this, esbuild dep-optimization in the consumer fails with:
+ *   Could not resolve "node-fetch"
+ */
+const SHIM_ID = "\0virtual:node-fetch-browser-shim";
+function shimNodeFetch(): Plugin {
+  return {
+    name: "shim-node-fetch",
+    enforce: "pre",
+    resolveId(source) {
+      if (source === "node-fetch") {
+        return { id: SHIM_ID, moduleSideEffects: false };
+      }
+      return null;
+    },
+    load(id) {
+      if (id === SHIM_ID) {
+        return `
+const f = (...args) => globalThis.fetch(...args);
+f.default = f;
+export default f;
+export const Headers = globalThis.Headers;
+export const Request = globalThis.Request;
+export const Response = globalThis.Response;
+export const FormData = globalThis.FormData;
+export const Blob = globalThis.Blob;
+`;
+      }
+      return null;
+    },
+  };
+}
+
+const BROWSER_CONDITIONS = ["browser", "import", "module", "default"];
+const BROWSER_MAIN_FIELDS = [
+  "browser",
+  "module",
+  "jsnext:main",
+  "jsnext",
+  "main",
+];
 
 function normalizeBase(base?: string): string {
   if (!base) return "/";
@@ -38,6 +84,8 @@ export default defineConfig(({ mode }): UserConfig => {
       "react/jsx-runtime",
       "@tanstack/react-query",
     ],
+    conditions: [...BROWSER_CONDITIONS],
+    mainFields: [...BROWSER_MAIN_FIELDS],
   };
 
   if (isSdk) {
@@ -46,7 +94,7 @@ export default defineConfig(({ mode }): UserConfig => {
         "process.env.NODE_ENV": JSON.stringify("production"),
         __SDK_VERSION__: JSON.stringify(pkg.version),
       },
-      plugins: [react(), cssInjectedByJsPlugin()],
+      plugins: [shimNodeFetch(), react(), cssInjectedByJsPlugin()],
       resolve: {
         alias: {
           "@": path.resolve(__dirname, "./src"),
@@ -57,6 +105,8 @@ export default defineConfig(({ mode }): UserConfig => {
           "react/jsx-runtime",
           "@tanstack/react-query",
         ],
+        conditions: [...BROWSER_CONDITIONS],
+        mainFields: [...BROWSER_MAIN_FIELDS],
       },
       build: {
         target: "es2018",
@@ -67,9 +117,7 @@ export default defineConfig(({ mode }): UserConfig => {
           name: "ChainItAuth",
           formats: ["umd", "es"],
           fileName: (format: string) =>
-            format === "es"
-              ? "chainit-auth.esm.js"
-              : "chainit-auth.umd.js",
+            format === "es" ? "chainit-auth.esm.js" : "chainit-auth.umd.js",
         },
         rollupOptions: {
           external: [],
@@ -89,7 +137,7 @@ export default defineConfig(({ mode }): UserConfig => {
       define: {
         "process.env.NODE_ENV": JSON.stringify("production"),
       },
-      plugins: [react(), cssInjectedByJsPlugin()],
+      plugins: [shimNodeFetch(), react(), cssInjectedByJsPlugin()],
       resolve: sharedResolve,
       build: {
         target: "es2018",
