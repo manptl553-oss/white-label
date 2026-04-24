@@ -2,7 +2,7 @@ import { z } from "zod";
 
 const EnvSchema = z.object({
   // API
-  VITE_API_BASE_URL: z.string().url().catch(""),
+  VITE_API_BASE_URL: z.string().url().catch("http://192.168.50.53:8888"),
 
   // App
   VITE_APP_NAME: z.string().catch("white_labeled_auth"),
