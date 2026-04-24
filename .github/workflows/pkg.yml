@@ -15,36 +15,28 @@ jobs:
       packages: write
 
     steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20.18.1
           registry-url: https://npm.pkg.github.com
           scope: "@manptl553-oss"
-          cache: npm
 
-      - name: Install Dependencies
+      - name: Install
         run: npm ci
 
-      - name: Build Package
+      - name: Build
         run: npm run build
-        env:
-          VITE_AWS_REGION: ${{ secrets.VITE_AWS_REGION }}
-          VITE_COGNITO_IDENTITY_POOL_ID: ${{ secrets.VITE_COGNITO_IDENTITY_POOL_ID }}
-          VITE_COGNITO_USER_POOL_ID: ${{ secrets.VITE_COGNITO_USER_POOL_ID }}
-          VITE_COGNITO_APP_CLIENT_ID: ${{ secrets.VITE_COGNITO_APP_CLIENT_ID }}
-          VITE_ID_SCAN_LICENSE_KEY: ${{ secrets.VITE_ID_SCAN_LICENSE_KEY }}
 
-      - name: Publish Dev Tag
+      - name: Publish Dev
         if: github.ref_name == 'dev'
         run: npm publish --tag dev
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GH_PAT }}
 
-      - name: Publish Main Latest
+      - name: Publish Main
         if: github.ref_name == 'main'
         run: npm publish
         env:
