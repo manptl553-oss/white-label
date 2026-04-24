@@ -19,13 +19,25 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
-          registry-url: https://npm.pkg.github.com
+          node-version: 20.18.1
 
-      - run: npm ci
-      - run: npm run build
-
-      - name: Publish
-        run: npm publish
+      - name: Create npm auth
+        run: |
+          echo "@manptl553-oss:registry=https://npm.pkg.github.com" >> ~/.npmrc
+          echo "//npm.pkg.github.com/:_authToken=${GH_PAT}" >> ~/.npmrc
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GH_PAT }}
+          GH_PAT: ${{ secrets.GH_PAT }}
+
+      - name: Install
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Publish Dev
+        if: github.ref_name == 'dev'
+        run: npm publish --tag dev
+
+      - name: Publish Main
+        if: github.ref_name == 'main'
+        run: npm publish
