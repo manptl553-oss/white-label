@@ -17,16 +17,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
           node-version: 20.18.1
-
-      - name: Create npm auth
-        run: |
-          echo "@manptl553-oss:registry=https://npm.pkg.github.com" >> ~/.npmrc
-          echo "//npm.pkg.github.com/:_authToken=${GH_PAT}" >> ~/.npmrc
-        env:
-          GH_PAT: ${{ secrets.GH_PAT }}
+          registry-url: https://npm.pkg.github.com
+          scope: "@manptl553-oss"
 
       - name: Install
         run: npm ci
@@ -37,7 +33,11 @@ jobs:
       - name: Publish Dev
         if: github.ref_name == 'dev'
         run: npm publish --tag dev
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GH_PAT }}
 
       - name: Publish Main
         if: github.ref_name == 'main'
         run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GH_PAT }}
