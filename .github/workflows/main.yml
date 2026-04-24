@@ -1,13 +1,23 @@
-name: Build Package
+name: Build & Publish Package
 
 on:
   push:
     branches:
+      - dev
       - main
 
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
+
+    # Uses matching GitHub Environment:
+    # dev branch  -> dev environment
+    # main branch -> main environment
+    environment: ${{ github.ref_name }}
+
+    permissions:
+      contents: read
+      packages: write
 
     env:
       VITE_AWS_REGION: ${{ secrets.VITE_AWS_REGION }}
@@ -20,13 +30,29 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v4
 
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20.18.1
+          cache: npm
+          registry-url: https://npm.pkg.github.com
 
       - name: Install Dependencies
-        run: npm i
+        run: npm ci
 
       - name: Build Package
         run: npm run build
+
+      # Publish dev branch as prerelease tag
+      - name: Publish Dev Package
+        if: github.ref_name == 'dev'
+        run: npm publish --tag dev
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Publish main branch as latest stable
+      - name: Publish Main Package
+        if: github.ref_name == 'main'
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
